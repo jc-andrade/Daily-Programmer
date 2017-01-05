@@ -1,9 +1,11 @@
 // Problem 3, Largest Prime Factor.
 // Find the largest prime factor of the number 600 851 475 143
+// STATUS: UNSOLVED
+
 #include <cmath>
 #include <iostream>
 
-int largestPrime(int theNum);
+int largestPrime(double theNum);
 
 int main() {
     double number = 600851475143;
@@ -12,11 +14,11 @@ int main() {
     std::cout << largest << std::endl;
 }
 
-int largestPrime(int theNum) {
-
+int largestPrime(double theNum) 
+{
     int FactorCount = 0;
     int sqrtNum = sqrt(theNum);
-    for (int i=theNum; i>=2; --i)
+    for (int i=theNum; i<=2; --i)
     {
         for(int j=2; j < sqrtNum + 1; ++j)
         {
@@ -27,7 +29,6 @@ int largestPrime(int theNum) {
             }
         }
         if (FactorCount == 0) { return i; break; }
-        FactorCount = 0;
     }   
 return FactorCount;
 }
