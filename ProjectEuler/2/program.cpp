@@ -1,16 +1,26 @@
-#include <iostream>
+// Find sum of all Fibonacci even numbers
+// STATUS: SOLVED
 
+#include <iostream>
+#include <cstdlib>
 using namespace std;
-int fib(int x);
+
 
 int main() {
-    int y = fib(5);
-    cout << y << endl;
-}
-// This is just fibonacci series, now we just have to find the evens and sum them up.
-int fib(int x) {
-    if (x == 0) { return 0; }
-    if (x == 1) { return 1; }
-    else
-    { return fib(x-1)+fib(x-2); }
+    // Initialize variables
+    int a = 1,
+        b = 1,
+        c = 1,
+        sum = 0;
+
+    while (c < 4000000) {
+    c = a + b;
+        if ( (c%2) == 0 ) // If even
+            sum += c; // add to sum
+
+    a = b; // This is where the fibonacci series
+    b = c; // basically happens
+    }
+    cout << sum;
+    return 0;
 }
