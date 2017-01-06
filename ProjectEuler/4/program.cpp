@@ -8,7 +8,9 @@ int main () {
     int n,
         num,
         digit,
-        rev = 0;
+        rev = 0,
+        biggest,
+        compare = 0;
         
     for (int i = 100; i < 1000; i++)
     {
@@ -21,11 +23,19 @@ int main () {
                 rev = (rev * 10) + digit; // multiplies by 10 and adds the next digit to start reversing it 
                 num = num / 10; // Take away the last digit
             } while (num !=0);
-            if (n == rev)
-                cout << n << endl;
+            if (n == rev) // If it is a palindrome
+            {
+                biggest = n;
+                if (biggest > compare)
+                {
+                    cout << biggest << endl;
+                    compare = biggest;
+                }
+            }
+            
 
-            else if (n != rev)
-                rev = 0;
+            else if (n != rev) // otherwise
+                rev = 0; // reset the reversed number and begin the next set of numbers
         }
     }
     return 0;
